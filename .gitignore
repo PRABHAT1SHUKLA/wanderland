@@ -1,37 +1,358 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# ============================================================================
+# UNIVERSAL PRODUCTION .GITIGNORE
+# Comprehensive protection for sensitive data and build artifacts
+# ============================================================================
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-.yarn/install-state.gz
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
+# ============================================================================
+# SECRETS & CREDENTIALS (CRITICAL - NEVER COMMIT THESE)
+# ============================================================================
+.env
+.env.*
+!.env.example
+!.env.template
 *.pem
+*.key
+*.p12
+*.pfx
+*.cer
+*.crt
+*.der
+*.p7b
+*.p7c
+*.csr
+id_rsa*
+*.asc
+*.gpg
+secrets.yml
+secrets.yaml
+secrets.json
+credentials.json
+service-account*.json
+firebase-adminsdk*.json
+gcloud-service-key.json
+.aws/
+.azure/
+.gcp/
 
-# debug
+# ============================================================================
+# ENVIRONMENT & CONFIG
+# ============================================================================
+config.local.*
+*.local
+local_settings.py
+.envrc
+.direnv/
+
+# ============================================================================
+# DEPENDENCIES & PACKAGE MANAGERS
+# ============================================================================
+# Node.js
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.npm
+.yarn/
+.pnp.*
 
-# local env files
-.env*.local
-.env
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.venv/
+venv/
+ENV/
+env/
+*.egg-info/
+dist/
+build/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.ruff_cache/
+poetry.lock
+Pipfile.lock
 
-# vercel
-.vercel
+# Ruby
+*.gem
+.bundle/
+vendor/bundle/
+Gemfile.lock
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Java/Kotlin/Gradle
+*.class
+*.jar
+*.war
+*.ear
+target/
+.gradle/
+build/
+gradle-app.setting
+.gradletasknamecache
+
+# PHP
+/vendor/
+composer.lock
+composer.phar
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+go.sum
+vendor/
+
+# Rust
+target/
+Cargo.lock
+
+# ============================================================================
+# DATABASE & DATA FILES
+# ============================================================================
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+*.dump
+*.backup
+*.bak
+*.log
+*.csv
+*.dat
+*.data
+dump.rdb
+*.mdb
+*.accdb
+
+# ============================================================================
+# IDE & EDITORS
+# ============================================================================
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains IDEs (IntelliJ, WebStorm, PyCharm, etc.)
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea_modules/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.*.sw[a-z]
+Session.vim
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Xcode
+*.xcodeproj
+*.xcworkspace
+xcuserdata/
+
+# ============================================================================
+# OPERATING SYSTEMS
+# ============================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.stackdump
+
+# Linux
+.directory
+.Trash-*
+.nfs*
+
+# ============================================================================
+# BUILD OUTPUTS & ARTIFACTS
+# ============================================================================
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
+.output/
+.vercel/
+.netlify/
+.docusaurus/
+public/build/
+*.map
+*.min.js
+*.min.css
+
+# ============================================================================
+# TESTING & COVERAGE
+# ============================================================================
+coverage/
+.nyc_output/
+*.lcov
+.coverage
+.coverage.*
+htmlcov/
+*.cover
+.hypothesis/
+.pytest_cache/
+junit.xml
+test-results/
+playwright-report/
+test-report/
+
+# ============================================================================
+# LOGS & TEMPORARY FILES
+# ============================================================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.pid
+*.seed
+*.pid.lock
+.npm
+tmp/
+temp/
+*.tmp
+
+# ============================================================================
+# DOCKER & CONTAINERS
+# ============================================================================
+.dockerignore
+docker-compose.override.yml
+.docker/
+
+# ============================================================================
+# CLOUD & DEPLOYMENT
+# ============================================================================
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+terraform.tfvars
+*.auto.tfvars
+
+# Kubernetes
+kubeconfig
+*.kubeconfig
+
+# Serverless
+.serverless/
+.sls/
+
+# ============================================================================
+# MISCELLANEOUS
+# ============================================================================
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Media files (if not needed in repo)
+# Uncomment if you don't want to track large media
+# *.mp4
+# *.mov
+# *.avi
+# *.mp3
+# *.wav
+# *.flac
+# *.psd
+# *.ai
+
+# macOS specific
+.Spotlight-V100
+.fseventsd
+
+# JetBrains
+atlassian-ide-plugin.xml
+
+# SonarQube
+.sonar/
+.scannerwork/
+
+# ESLint
+.eslintcache
+
+# Stylelint
+.stylelintcache
+
+# ============================================================================
+# PROJECT SPECIFIC (Customize these for your needs)
+# ============================================================================
+# Add your project-specific ignores here
+# uploads/
+# static/media/
+# public/uploads/
